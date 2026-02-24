@@ -330,6 +330,305 @@ body.hide-header .main-header {
     white-space: nowrap;
 }
 
+.hero-ebsixone .hero-overlay-strong {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.45) 45%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+
+.hero-brand-layout {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  align-items: center;
+  justify-items: center;
+  padding-top: 110px; /* accounts for fixed header */
+  padding-bottom: 90px;
+  text-align: center;
+}
+
+/* Static hero background (shows after intro video fades out) */
+.hero-static-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1; /* behind video (video is z-index 2 in your CSS) */
+  background-image: url("assets/images/bpm-hero.png"); /* CHANGE THIS */
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.02);
+  opacity: 0.95;
+  filter: saturate(1.05) contrast(1.05);
+}
+
+/* Ensure the intro video can fade away cleanly */
+.hero-video-main {
+  z-index: 2;
+  opacity: 1;
+  transition: opacity 0.8s ease;
+}
+
+.hero-section.main-fade-out .hero-video-main {
+  opacity: 0;
+}
+
+/* Hide hero content during intro, reveal after */
+body.intro-mode .hero-after-intro {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translateY(10px) !important;
+  pointer-events: none !important;
+}
+
+body.intro-ended .hero-after-intro {
+  visibility: visible !important;
+  pointer-events: auto !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+.hero-identity {
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+
+.hero-hexagon {
+  width: min(380px, 72vw);
+  height: auto;
+  filter: drop-shadow(0 18px 55px rgba(0, 0, 0, 0.55));
+  transform: translateY(0);
+  opacity: 0;
+  animation: heroIdentityIn 900ms ease-out 120ms forwards;
+}
+
+@keyframes heroIdentityIn {
+  from { opacity: 0; transform: translateY(14px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.hero-message {
+  max-width: 900px;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: heroMessageIn 700ms ease-out 520ms forwards;
+}
+
+@keyframes heroMessageIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-kicker {
+  margin: 0 0 10px;
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.hero-title-centered {
+  margin: 0 0 14px;
+}
+
+.hero-title-emphasis {
+  color: rgba(255, 255, 255, 0.95);
+  text-decoration: none;
+}
+
+.hero-description-tight {
+  margin: 0 auto 22px;
+  max-width: 860px;
+}
+
+.hero-cta-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-ghost {
+  background: rgba(10, 14, 39, 0.15);
+  color: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.38);
+  transform: translateY(-2px);
+}
+
+.hero-hello-card {
+  width: min(520px, 92vw);
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(10, 14, 39, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 18px 55px rgba(0,0,0,0.38);
+  padding: 16px 16px 14px;
+  text-align: left;
+
+  opacity: 0;
+  transform: translateY(12px);
+  animation: heroHelloIn 700ms ease-out 760ms forwards;
+}
+
+@keyframes heroHelloIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hello-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.82);
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.06);
+  margin-bottom: 12px;
+}
+
+.hello-card-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+}
+
+.hello-card-text {
+  margin: 12px 2px 0;
+  color: rgba(255,255,255,0.82);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ============================================
+   World Map Strip + Scrolling Overlay Text
+   ============================================ */
+.world-map-strip {
+  position: relative;
+  overflow: hidden;
+  background: #070a18;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.world-map-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("assets/images/world-map.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.22; /* map subtle */
+  filter: saturate(1.05) contrast(1.05);
+  transform: scale(1.02);
+}
+
+.world-map-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      circle at 20% 40%,
+      rgba(30, 58, 138, 0.40),
+      rgba(0, 0, 0, 0.25) 55%,
+      rgba(0, 0, 0, 0.55) 100%
+    );
+}
+
+.world-map-inner {
+  position: relative;
+  z-index: 2;
+  padding: 34px 0;
+}
+
+/* marquee */
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-track {
+  display: inline-flex;
+  gap: 46px;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marqueeMove 16s linear infinite;
+  padding-left: 100%;
+}
+
+.marquee-item {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  font-size: clamp(18px, 2.2vw, 30px);
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 10px 30px rgba(0,0,0,0.45);
+}
+
+@keyframes marqueeMove {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* accessible fallback */
+.world-map-static-text {
+  display: none;
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: clamp(18px, 2.2vw, 30px);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none !important; }
+  .world-map-static-text { display: block; }
+  .marquee { display: none; }
+}
+
+/* Responsive: on larger screens, place hello card to the side */
+@media (min-width: 992px) {
+  .hero-brand-layout {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "identity identity"
+      "message hello";
+    align-items: start;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .hero-identity { grid-area: identity; }
+  .hero-message  { grid-area: message; text-align: left; justify-self: end; }
+  .hero-hello-card { grid-area: hello; justify-self: start; }
+
+  .hero-cta-row { justify-content: flex-start; }
+  .hero-description-tight { margin-left: 0; margin-right: 0; }
+}
+
+@media (max-width: 480px) {
+  .hero-brand-layout { padding-top: 96px; }
+  .hero-kicker { letter-spacing: 0.18em; }
+}
+
 body.intro-mode .hero-video-heartbeat {
     opacity: 0;
     transition: opacity 0.3s ease;
