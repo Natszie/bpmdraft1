@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ebSixOne - Business Process Management Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="intro-mode">
+    <!-- Page Loader (Fade-in effect) -->
+    <div class="page-loader">
+        <div class="loader-content">
+            <div class="loader-logo">ebSixOne</div>
+            <div class="loader-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="main-header" id="mainHeader">
+        <div class="container-fluid">
+            <nav class="navbar">
+                <div class="logo">
+                    <div class="logo-icon"></div>
+                    <span class="logo-text">ebSixOne</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#bpm-intro">ABOUT US</a></li>
+                    <li><a href="#services">SERVICES</a></li>
+                    <li><a href="#methods">METHODS</a></li>
+                    <li><a href="#gallery">GALLERY</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section - Full Screen with Video Background -->
+    <section class="hero-section" id="home">
+        <!-- Video Background -->
+        <div class="hero-slide-bg">
+  <!-- Video A (15s) -->
+  <video autoplay muted playsinline class="hero-bg-video hero-video-main" id="heroVideoMain">
+    <source src="assets/video/hero-header.mp4" type="video/mp4">
+  </video>
+
+  <!-- Video B (4-5s heartbeat line), hidden until Video A ends -->
+  <video muted playsinline class="hero-bg-video hero-video-heartbeat" id="heroVideoHeartbeat">
+    <source src="assets/video/heartbeat-loop.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-overlay"></div>
+</div>
+        
+        <div class="container">
+            <div class="hero-content" id="heroContent">
+  <h1 class="hero-title">
+    <span class="hero-title-line">Business Process</span><br>
+    <span class="hero-title-line">Management</span><br>
+    <span class="hero-title-line">(BPM)</span>
+  </h1>
+
+  <p class="hero-description">
+    Is an enterprise Heartbeat, not a choice, but a necessity. Whether you grow wheat, make doughnuts, bake pizza, drill for oil, produce chemicals, build jet planes, or make financial transactions in millions.
+  </p>
+
+  <a href="#bpm-intro" class="btn btn-primary scroll-to-content">LEARN MORE</a>
+</div>
+        </div>
+
+        <!-- Scroll Down Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-text">Scroll Down to Explore</div>
+            <div class="scroll-arrow">
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+                    <path d="M15 5 L15 22 M15 22 L8 15 M15 22 L22 15" 
+                          stroke="white" 
+                          stroke-width="2" 
+                          stroke-linecap="round" 
+                          stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <section class="bpm-intro" id="bpm-intro">
+  <div class="bpm-intro-bg" aria-hidden="true"></div>
+  <div class="bpm-intro-overlay" aria-hidden="true"></div>
+
+  <div class="container bpm-intro-wrap">
+    <!-- LEFT PANEL (logo + description + bullets) -->
+    <aside class="bpm-panel bpm-panel-left">
+      <div class="bpm-brand">
+        <div class="bpm-brand-title">ebSixOne<span class="tm">™</span></div>
+      </div>
+
+      <p class="bpm-panel-lead">
+        ebSixOne™ is a BPM system based on Six Enterprise-wide Core functions with built-in analytics and simple infrastructure.
+      </p>
+
+      <ul class="bpm-panel-list">
+        <li><strong>e</strong> = Enterprise (covering the entire business)</li>
+        <li><strong>b</strong> = Business basics and strategic goals</li>
+        <li><strong>Six</strong> = Six domains / functional areas (jobs)</li>
+        <li><strong>One</strong> = Single page — all appearing on one page</li>
+      </ul>
+
+      <p class="bpm-panel-note">
+        Innovative Business Process Management (BPM) system is built with the rules of nature, as nature does not change its rules.
+      </p>
+    </aside>
+
+    <!-- RIGHT PANEL (headline + paragraph) -->
+    <section class="bpm-panel bpm-panel-right" aria-label="BPM Summary">
+      <h3 class="bpm-right-title">Business Process Management (BPM)</h3>
+      <p class="bpm-right-text">
+        The Business Process Management (BPM) System is grounded in nature’s rules, history, and logic—providing a strong foundation for the new era of technology.
+      </p>
+    </section>
+  </div>
+  <div class="bpm-bottom-strip" aria-label="BPM tagline">
+    <div class="container bpm-bottom-strip-inner">
+      <p class="bpm-bottom-tagline">
+        BPM system to support your business needs of today, tomorrow and the future.
+      </p>
+    </div>
+  </div>
+</section>
+
+    <!-- Hello World Section - Hidden Initially (Video Animation) -->
+    <section class="hello-world-section" id="hello-world">
+        <div class="container">
+            <!-- Actual animated slide/video from PowerPoint -->
+            <div class="hello-world-animation">
+  <video
+  class="hello-world-video"
+  autoplay
+  muted
+  playsinline
+  preload="auto"
+>
+  <source src="assets/video/ebsixone-animation-hello.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+</div>
+            
+            <!-- Side-by-side figures (DNA, Process Framework, etc.) -->
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-image-placeholder">
+                        <img src="assets/images/dna-figure.png" alt="DNA">
+                    </div>
+                    <h4>Business DNA</h4>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-image-placeholder">
+                        <img src="assets/images/process-framework.png" alt="Framework">
+                    </div>
+                    <h4>Process Framework</h4>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-image-placeholder">
+                        <img src="assets/images/value-chain.png" alt="Value Chain">
+                    </div>
+                    <h4>Value Chain</h4>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-image-placeholder">
+                        <img src="assets/images/business-model.png" alt="Business Model">
+                    </div>
+                    <h4>Business Model</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <h2 class="section-title">LOREM IPSUM</h2>
+            <div class="section-divider"></div>
+            
+            <div class="service-cards">
+                <div class="service-card">
+                    <div class="card-image-placeholder">
+                        <img src="assets/images/service-1.jpg" alt="Service 1">
+                    </div>
+                    <h3 class="card-title">LOREM IPSUM</h3>
+                    <p class="card-description">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                        Quisque molestie enim ligula, vitae tempus ante semper sit amet.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="card-image-placeholder">
+                        <img src="assets/images/service-2.jpg" alt="Service 2">
+                    </div>
+                    <h3 class="card-title">LOREM IPSUM</h3>
+                    <p class="card-description">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                        Quisque molestie enim ligula, vitae tempus ante semper sit amet.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="card-image-placeholder">
+                        <img src="assets/images/service-3.jpg" alt="Service 3">
+                    </div>
+                    <h3 class="card-title">LOREM IPSUM</h3>
+                    <p class="card-description">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                        Quisque molestie enim ligula, vitae tempus ante semper sit amet.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What ebSixOne Can Do Section (Video + Content) -->
+    <section class="showcase-section" id="showcase">
+        <div class="container">
+            <h2 class="section-title">What ebSixOne Can Do for Your Company</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            
+            <div class="showcase-wrapper">
+                <!-- Left: Large Video Area -->
+                <div class="showcase-video">
+                    <!-- Option 1: Video Loop -->
+                    <video autoplay loop muted playsinline class="showcase-video-player" controls>
+                        <source src="assets/video/showcase-demo.mp4" type="video/mp4">
+                    </video>
+                    
+                    <!-- Option 2: Image placeholder (uncomment if using static image) -->
+                    <!-- <img src="assets/images/showcase-preview.jpg" alt="ebSixOne Showcase" class="showcase-image"> -->
+                </div>
+                
+                <!-- Right: Benefits List -->
+                <div class="showcase-content">
+                    <h3 class="showcase-heading">LOREM IPSUM</h3>
+                    <ul class="benefits-list">
+                        <li>Lorem ipsum dolor sit, amet, consectetur adipiscing elit</li>
+                        <li>Lorem ipsum dolor sit, amet, consectetur adipiscing elit</li>
+                        <li>Lorem ipsum dolor sit, amet, consectetur adipiscing elit</li>
+                        <li>Lorem ipsum dolor sit, amet, consectetur adipiscing elit</li>
+                        <li>Lorem ipsum dolor sit, amet, consectetur adipiscing elit</li>
+                        <li>Lorem ipsum dolor sit, amet, consectetur adipiscing elit</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon"></div>
+                        <span class="logo-text">ebSixOne</span>
+                    </div>
+                    <p class="footer-description">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                        Quisque molestie enim ligula.
+                    </p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links-grid">
+                        <div class="links-column">
+                            <a href="#home">Home</a>
+                            <a href="#services">Services</a>
+                            <a href="#methods">Methods</a>
+                            <a href="#gallery">Gallery</a>
+                        </div>
+                        <div class="links-column">
+                            <a href="#booklet">Booklet</a>
+                            <a href="#contact">Contact</a>
+                            <a href="#privacy">Privacy Policy</a>
+                            <a href="#faq">FAQ</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <div class="contact-info">
+                        <p><strong>Email</strong><br>
+                        <a href="mailto:sample@business.com">sample@business.com</a></p>
+                        
+                        <p><strong>Phone</strong><br>
+                        1234567890</p>
+                        
+                        <p><strong>Location</strong><br>
+                        Philippines</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Business Consulting. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

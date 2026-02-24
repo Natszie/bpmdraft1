@@ -1,0 +1,362 @@
+/* ============================================
+   PowerPoint-Style Animation Keyframes
+   ============================================ */
+
+/* Base state - elements hidden before animation */
+.hello-world-header,
+.dna-column,
+.framework-column,
+.team-visual,
+.world-map-overlay,
+.tagline-box,
+.dna-helix,
+.dna-icon,
+.process-node,
+.flow-arrow,
+.feedback-loop,
+.intro-card {
+    opacity: 0;
+}
+
+/* Fade In Down (like PowerPoint Appear from Top) */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ppt-fadeInDown {
+    animation: fadeInDown 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Slide In Left */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px) rotate(-5deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) rotate(0);
+    }
+}
+
+.ppt-slideInLeft {
+    animation: slideInLeft 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Slide In Right */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px) rotate(5deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) rotate(0);
+    }
+}
+
+.ppt-slideInRight {
+    animation: slideInRight 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Zoom In (Center Grow) */
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.ppt-zoomIn {
+    animation: zoomIn 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Fade In */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.ppt-fadeIn {
+    animation: fadeIn 1.2s ease-out forwards;
+}
+
+/* Pop In (Bounce Scale) */
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.ppt-popIn {
+    animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Slide In Up */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ppt-slideInUp {
+    animation: slideInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Draw In (SVG Path Animation) */
+@keyframes drawPath {
+    from {
+        stroke-dashoffset: 100%;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.ppt-drawIn path,
+.ppt-drawIn line {
+    opacity: 0;
+}
+
+/* Cascade In (Sequential with slight rotation) */
+@keyframes cascadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.8) rotate(-10deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotate(0);
+    }
+}
+
+.ppt-cascadeIn {
+    animation: cascadeIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Grow In (Vertical Expansion) */
+@keyframes growIn {
+    from {
+        opacity: 0;
+        transform: scaleY(0);
+    }
+    to {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}
+
+.ppt-growIn {
+    animation: growIn 0.5s ease-out forwards;
+    transform-origin: top;
+}
+
+/* Flip In (3D Flip) */
+@keyframes flipIn {
+    from {
+        opacity: 0;
+        transform: perspective(1000px) rotateY(-90deg) translateZ(50px);
+    }
+    to {
+        opacity: 1;
+        transform: perspective(1000px) rotateY(0) translateZ(0);
+    }
+}
+
+.ppt-flipIn {
+    animation: flipIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* ============================================
+   Continuous Animations (After Initial Reveal)
+   ============================================ */
+
+/* Flow Particle Animation */
+.flow-particle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    box-shadow: 0 0 10px var(--color-primary);
+}
+
+@keyframes flowDown {
+    0% {
+        top: 0;
+        opacity: 0;
+        transform: translateX(-50%) scale(0);
+    }
+    20% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        top: 100%;
+        opacity: 0;
+        transform: translateX(-50%) scale(0);
+    }
+}
+
+/* DNA Helix Continuous Rotation */
+.dna-helix {
+    transition: transform 0.05s linear;
+}
+
+/* Map Node Pulse (overridden in JS for sequential effect) */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+        filter: drop-shadow(0 0 20px rgba(0, 102, 204, 1));
+    }
+}
+
+/* DNA Icon Float (already defined, but ensuring it works with reveal) */
+.ppt-animated.dna-icon {
+    animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards, 
+               float 3s ease-in-out infinite 0.6s;
+}
+
+/* ============================================
+   Special Effects
+   ============================================ */
+
+/* Glow Pulse Effect for Key Elements */
+@keyframes glowPulse {
+    0%, 100% {
+        filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.3));
+    }
+    50% {
+        filter: drop-shadow(0 0 25px rgba(6, 182, 212, 0.8));
+    }
+}
+
+.ppt-animated .dna-helix {
+    animation: fadeIn 1s ease-out forwards, glowPulse 3s ease-in-out infinite 2s;
+}
+
+/* Shimmer Effect on Tagline */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.tagline-box.ppt-animated::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    animation: shimmer 3s infinite 2s;
+}
+
+.tagline-box {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Card Entrance with Shadow Expansion */
+@keyframes shadowExpand {
+    from {
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+    to {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+}
+
+.intro-card.ppt-flipIn {
+    animation: flipIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+               shadowExpand 0.8s ease-out forwards;
+}
+
+/* Process Node Sequential Highlight */
+@keyframes nodeHighlight {
+    0%, 90%, 100% {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+    45% {
+        box-shadow: 0 8px 30px rgba(0, 102, 204, 0.4);
+        transform: scale(1.05);
+    }
+}
+
+.process-node.ppt-animated {
+    animation: cascadeIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+               nodeHighlight 4s ease-in-out infinite 3s;
+}
+
+/* Stagger delay classes (applied via JS) */
+.stagger-delay-1 { animation-delay: 0.1s !important; }
+.stagger-delay-2 { animation-delay: 0.2s !important; }
+.stagger-delay-3 { animation-delay: 0.3s !important; }
+.stagger-delay-4 { animation-delay: 0.4s !important; }
+
+/* ============================================
+   Smooth Transitions
+   ============================================ */
+.intro-card {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
