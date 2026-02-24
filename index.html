@@ -45,53 +45,91 @@
     </header>
 
     <!-- Hero Section - Full Screen with Video Background -->
-    <section class="hero-section" id="home">
-        <!-- Video Background -->
-        <div class="hero-slide-bg">
-  <!-- Video A (15s) -->
-  <video autoplay muted playsinline class="hero-bg-video hero-video-main" id="heroVideoMain">
-    <source src="assets/video/hero-header.mp4" type="video/mp4">
-  </video>
+<!-- Hero Section - Full Screen with Video + Static Background -->
+<section class="hero-section hero-ebsixone" id="home">
+  <div class="hero-slide-bg">
+    <!-- Static background shown AFTER intro (and can be visible subtly under video too) -->
+    <div class="hero-static-bg" aria-hidden="true"></div>
 
-  <!-- Video B (4-5s heartbeat line), hidden until Video A ends -->
-  <video muted playsinline class="hero-bg-video hero-video-heartbeat" id="heroVideoHeartbeat">
-    <source src="assets/video/heartbeat-loop.mp4" type="video/mp4">
-  </video>
+    <!-- Intro Video (15s) plays once -->
+    <video
+      autoplay
+      muted
+      playsinline
+      preload="auto"
+      class="hero-bg-video hero-video-main"
+      id="heroVideoMain"
+    >
+      <source src="assets/video/hero-header.mp4" type="video/mp4">
+    </video>
 
-  <div class="hero-overlay"></div>
-</div>
-        
-        <div class="container">
-            <div class="hero-content" id="heroContent">
-  <h1 class="hero-title">
-    <span class="hero-title-line">Business Process</span><br>
-    <span class="hero-title-line">Management</span><br>
-    <span class="hero-title-line">(BPM)</span>
-  </h1>
+    <!-- Dark overlay for readability -->
+    <div class="hero-overlay hero-overlay-strong"></div>
+  </div>
 
-  <p class="hero-description">
-    Is an enterprise Heartbeat, not a choice, but a necessity. Whether you grow wheat, make doughnuts, bake pizza, drill for oil, produce chemicals, build jet planes, or make financial transactions in millions.
-  </p>
+  <div class="container">
+    <!-- This content is hidden during intro-mode and fades in after intro-ended -->
+    <div class="hero-brand-layout hero-after-intro" id="heroContent">
 
-  <a href="#bpm-intro" class="btn btn-primary scroll-to-content">LEARN MORE</a>
-</div>
+      <div class="hero-message">
+        <p class="hero-kicker">Welcome to ebSixOne™</p>
+
+        <h1 class="hero-title hero-title-centered">
+          <span class="hero-title-line">Business Process Management</span><br />
+          <span class="hero-title-line hero-title-emphasis">is the enterprise heartbeat</span>
+        </h1>
+
+        <p class="hero-description hero-description-tight">
+          ebSixOne™ is a BPM system built around six enterprise-wide core functions—designed to bring clarity,
+          alignment, and measurable performance across your organization.
+        </p>
+
+        <div class="hero-cta-row">
+          <a href="#bpm-intro" class="btn btn-primary scroll-to-content">Explore ebSixOne</a>
+          <a href="#showcase" class="btn btn-ghost">See what it can do</a>
         </div>
+      </div>
+    </div>
+  </div>
 
-        <!-- Scroll Down Indicator -->
-        <div class="scroll-indicator">
-            <div class="scroll-text">Scroll Down to Explore</div>
-            <div class="scroll-arrow">
-                <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-                    <path d="M15 5 L15 22 M15 22 L8 15 M15 22 L22 15" 
-                          stroke="white" 
-                          stroke-width="2" 
-                          stroke-linecap="round" 
-                          stroke-linejoin="round"/>
-                </svg>
-            </div>
-            <div class="scroll-line"></div>
-        </div>
-    </section>
+  <div class="scroll-indicator">
+    <div class="scroll-text">Scroll Down to Explore</div>
+    <div class="scroll-arrow">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+        <path
+          d="M15 5 L15 22 M15 22 L8 15 M15 22 L22 15"
+          stroke="white"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </div>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- World Map Section / Strip (immediate next section) -->
+<section class="world-map-strip" id="world-map" aria-label="BPM world map message">
+  <div class="world-map-bg" aria-hidden="true"></div>
+  <div class="world-map-overlay" aria-hidden="true"></div>
+
+  <div class="world-map-inner">
+    <div class="marquee" role="presentation" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-item">BPM is the heartbeat of every enterprise</span>
+        <span class="marquee-item">BPM is the heartbeat of every enterprise</span>
+        <span class="marquee-item">BPM is the heartbeat of every enterprise</span>
+        <span class="marquee-item">BPM is the heartbeat of every enterprise</span>
+      </div>
+    </div>
+
+    <!-- Optional: accessible static text (screen readers / reduced motion) -->
+    <p class="world-map-static-text">
+      BPM is the heartbeat of every enterprise
+    </p>
+  </div>
+</section>
 
     <section class="bpm-intro" id="bpm-intro">
   <div class="bpm-intro-bg" aria-hidden="true"></div>
