@@ -15,20 +15,6 @@ window.addEventListener('load', () => {
     }, 1500);
 });
 
-function lockScroll() {
-  window.__scrollY = window.scrollY;
-  window.addEventListener(
-    "scroll",
-    () => {
-      if (document.body.classList.contains("intro-mode")) {
-        window.scrollTo(0, window.__scrollY || 0);
-      }
-    },
-    { passive: false }
-  );
-}
-lockScroll();
-
 
 class ScrollSpy {
   constructor() {
@@ -328,6 +314,48 @@ class ScrollReveal {
     }
 }
 
+class HeroIntroToStatic {
+  constructor() {
+    this.heroSection = document.querySelector('.hero-section');
+    this.videoMain = document.querySelector('#heroVideoMain');
+    this.init();
+  }
+
+  init() {
+    if (!this.heroSection || !this.videoMain) return;
+
+    // Play intro once
+    this.videoMain.loop = false;
+
+    const end = () => this.endIntro();
+
+    // Normal case: video ends
+    this.videoMain.addEventListener('ended', end);
+
+    // Safety: if autoplay fails or video errors, don't keep the page locked
+    this.videoMain.addEventListener('error', end);
+
+    // Optional safety: if metadata never loads (rare), still end intro
+    setTimeout(() => {
+      if (document.body.classList.contains('intro-mode')) end();
+    }, 20000); // 20s fallback
+  }
+
+  endIntro() {
+    if (document.body.classList.contains('intro-ended')) return;
+
+    // Fade the intro video out revealing the static background underneath
+    this.heroSection.classList.add('main-fade-out');
+
+    // Switch body state so hero content appears and scroll is enabled
+    document.body.classList.remove('intro-mode');
+    document.body.classList.add('intro-ended');
+
+    // Ensure the invisible video layer doesn't block clicks
+    this.videoMain.style.pointerEvents = 'none';
+  }
+}
+
 // ============================================
 // Initialize Everything
 // ============================================
@@ -336,8 +364,8 @@ document.addEventListener('DOMContentLoaded', () => {
     new SmoothScroll();
     new SectionReveal(); // 👈 NEW: Reveals Hello World on scroll
     new ScrollReveal();  // Reveals cards
-    new HeroVideoSequence();
     new ScrollSpy();
+    new HeroIntroToStatic();
 });
 
 // Add reveal styles
